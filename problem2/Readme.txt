@@ -1,0 +1,9 @@
+g++ -Wall -Werror -fpic -c libmymem.hpp -I . libmymem.cpp -std=c++14 -g 
+g++ -shared -o libmymem.so libmymem.o -std=c++14  
+g++ -I . -L . -Wall -o memutil memutil.cpp -l mymem -l pthread  -std=c++14 -g 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+./memutil -n 100 -t 2
+
+
+Instead directly use the following command in the bash 
+bash execution.sh
